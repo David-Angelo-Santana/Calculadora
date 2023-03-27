@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2? family=Inconsolata:wght@200;300;400;500;600;700;800;900&family=Inter:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Roboto:wght@400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  'Lato', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 3em;
+    flex-direction: column;
+    background: #edf1f4;
+}
+
+.dark{
+    background: #282c2f;
+}
+
+.calculadora{
+    position: relative;
+    width: 21.25rem;
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+    box-shadow: 0.93rem 0.93rem 1.25rem rgba(0, 0, 0,0.1), 
+    0.93rem 0.93rem 1.25rem #fffb;
+}
+
+.dark .calculadora{
+    background: #33393e;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0,0.1), 
+    -15px -15px 20px rgba(255, 255, 255,0.1);
+}
+
+.caixa{
+    font-weight: 300;
+    font-size: 25px;
+    position: relative;
+    width: 21.25rem;
+    color:#282c2f;
+    border: solid 10px #edf1f4;
+    background: #edf1f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+.caixa::before, .caixa::after
+{  content: '';
+    position: absolute;
+    z-index: -1;
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    background: linear-gradient(45deg ,#ffff00, #00ff00, #0099ff, #001aff,#a200ff, #ff0055, #ff0000,
+    #ffff00, #00ff00, #0099ff, #001aff,#a200ff);
+    background-size: 300%;
+    border-radius: 3px;
+    animation: animaBorda 4s linear alternate infinite;
+}
+
+@keyframes animaBorda{
+    0%{ background-position: 0;
+    }
+    100% {
+        background-position: 300%;
+    }
+}
+
+.caixa::after{
+    filter: blur(25px);
+}
+
+
+.calculadora .buttons{
+    position: relative;
+    display: grid;
+}
+
+.calculadora .buttons #value{
+    position: relative;
+    grid-column: span 4;
+    user-select: none;
+    overflow: none;
+    width: 100%;
+    text-align: end;
+    color: #5166d6;
+    height: 6.25rem;
+    line-height: 6.25rem;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0,0.1),
+    inset -5px -5px 1.25rem #fff;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    padding: 0 20px;
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.dark.calculadora .buttons #value{
+    background: #33393e;
+    color: #eee;
+    box-shadow:inset 15px 15px 20px rgba(0, 0, 0,0.1), 
+    inset -15px -15px 20px rgba(255, 255, 255,0.25);
+}
+
+.calculadora .buttons span{
+    position: relative;
+    padding: 10px;
+    box-shadow:5px 5px 10px rgba(0, 0, 0,0.5),
+    -5px -5px 1.25rem #fff;
+    margin: 10px;
+    cursor: pointer;
+    user-select: none;
+    min-width: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #666;
+    border: 2px solid #edf1f4;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0,0.1),
+    -5px -5px 10px #fff;
+    border-radius: 10px;
+
+}
+
+.dark.calculadora .buttons span{
+    color: #eee;
+    border: 2px solid #333;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0,0.25),
+    -5px -5px 10px rgba(255, 255, 255,0.25);
+
+}
+
+.calculadora .buttons span:active{
+    box-shadow:inset 5px 5px 10px rgba(0, 0, 0,0.1),
+   inset -5px -5px 10px #fff;
+   color: #f44336;
+
+}
+
+.dark.calculadora .buttons span:active{
+    box-shadow:inset 5px 5px 10px rgba(0, 0, 0,0.25),
+    inset -5px -5px 10px rgba(255, 255, 255,0.25);
+}
+
+.calculadora .buttons span#clear{
+    grid-column: span 2;
+    background: #f44336;
+    color: #fff;
+    border: solid 2px #edf1f4;
+
+}
+
+.calculadora .buttons span#plus{
+    grid-row: span 2;
+    background: #31a935;
+    color: #fff;
+    border: solid 2px #edf1f4;
+
+}
+
+.calculadora .buttons span#igual{
+    grid-row:span 2;
+    background: #2196f3;
+    color: #fff;
+    border: solid 2px #edf1f4;
+
+}
+
+.calculadora .buttons span#clear:active
+.calculadora .buttons span#plus:active
+.calculadora .buttons span#igual:active
+{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0,0.1),
+    -5px -5px 10px #fff,
+    inset 5px 5px 10px rgba(0, 0, 0,0.1);
+}
+
+.dark.calculadora .buttons span#clear
+.dark.calculadora .buttons span#plus
+.dark.calculadora .buttons span#igual
+{
+    border: 2px solid #333;
+}
+
+.dark.calculadora .buttons span#clear:active
+.dark.calculadora .buttons span#plus:active
+.dark.calculadora .buttons span#igual:active
+{
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0,0.1);
+}
+
+.toggleBtn{
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: #555;
+    cursor: pointer;
+    border: 1px solid #edf1f4;
+    box-shadow: 5ox 5px 10px rgba(0, 0, 0,0.1),
+    -5px -5px 10px #fff;
+
+}
+
+.dark.toggleBtn
+{
+    background: #edf1f4;
+    border: 2px solid #333;
+    box-shadow: 5ox 5px 10px rgba(0, 0, 0,0.25),
+    -5px -5px 10px rgba(255, 255, 255,0.25);
+}
+
+
+
